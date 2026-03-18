@@ -69,6 +69,8 @@ fn nav_html(active: &str) -> String {
         ("Deployments", "/ui/deployments"),
         ("Networks", "/ui/networks"),
         ("BMH", "/ui/bmh"),
+        ("BootConfigs", "/ui/bootconfigs"),
+        ("Registries", "/ui/registries"),
         ("Storage", "/ui/storage"),
         ("Jobs", "/ui/jobs"),
         ("Logs", "/ui/logs"),

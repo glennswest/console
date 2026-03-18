@@ -50,6 +50,12 @@ async fn main() {
         // BMH
         .route("/ui/bmh", get(ui::bmh::list_page))
         .route("/ui/bmh/{ns}/{name}", get(ui::bmh::detail_page))
+        // Boot Configs
+        .route("/ui/bootconfigs", get(ui::bootconfigs::list_page))
+        .route("/ui/bootconfigs/{ns}/{name}", get(ui::bootconfigs::detail_page))
+        // Registries
+        .route("/ui/registries", get(ui::registries::list_page))
+        .route("/ui/registries/{ns}/{name}", get(ui::registries::detail_page))
         // Storage
         .route("/ui/storage", get(ui::storage::page))
         // Jobs

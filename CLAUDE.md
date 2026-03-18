@@ -67,5 +67,7 @@ src/ui/terminal.rs   — WebSocket terminal proxy
 ### TODO
 - [ ] Deploy to mkube as pod, verify end-to-end
 - [ ] WebSocket proxy through console (currently direct to stormd)
-- [ ] BootConfigs page
-- [ ] Registries page
+
+### Recently Completed
+- [x] BootConfigs page (list + detail, referencing BMH cross-link)
+- [x] Registries page (list + detail, image catalog)

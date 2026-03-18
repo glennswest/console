@@ -1,5 +1,13 @@
 # Changelog
 
+## [Unreleased]
+
+### 2026-03-18
+- **feat:** BootConfigs page — list + detail with kernel/initrd/iPXE/cmdline fields, referencing BMH cross-link
+- **feat:** Registries page — list + detail with URL/mirrors/insecure/images, delete support
+- **feat:** mkube client: bootconfigs and registries API endpoints (list, get, delete)
+- **feat:** Navigation bar updated with BootConfigs and Registries links
+
 ## [v0.1.0] — 2026-03-18
 
 ### Added

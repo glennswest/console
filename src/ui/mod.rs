@@ -6,6 +6,8 @@ pub mod pods;
 pub mod deployments;
 pub mod networks;
 pub mod bmh;
+pub mod bootconfigs;
+pub mod registries;
 pub mod storage;
 pub mod jobs;
 pub mod logs;

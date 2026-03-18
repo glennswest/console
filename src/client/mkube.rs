@@ -169,6 +169,20 @@ pub struct ISCSIDisk {
 }
 
 #[derive(Debug, Deserialize, Serialize, Clone)]
+pub struct BootConfig {
+    pub metadata: Option<Metadata>,
+    pub spec: Option<Value>,
+    pub status: Option<Value>,
+}
+
+#[derive(Debug, Deserialize, Serialize, Clone)]
+pub struct Registry {
+    pub metadata: Option<Metadata>,
+    pub spec: Option<Value>,
+    pub status: Option<Value>,
+}
+
+#[derive(Debug, Deserialize, Serialize, Clone)]
 pub struct Job {
     pub metadata: Option<Metadata>,
     pub spec: Option<Value>,
@@ -327,6 +341,36 @@ impl MkubeClient {
             .json(patch)
             .send().await
             .map_err(|e| e.to_string())?;
+        Ok(())
+    }
+
+    // Boot Configs
+    pub async fn list_bootconfigs(&self) -> Result<ItemList<BootConfig>, String> {
+        self.get_json("/api/v1/bootconfigs").await
+    }
+
+    pub async fn get_bootconfig(&self, ns: &str, name: &str) -> Result<BootConfig, String> {
+        self.get_json(&format!("/api/v1/namespaces/{}/bootconfigs/{}", ns, name)).await
+    }
+
+    pub async fn delete_bootconfig(&self, ns: &str, name: &str) -> Result<(), String> {
+        let url = format!("{}/api/v1/namespaces/{}/bootconfigs/{}", self.base_url, ns, name);
+        self.client.delete(&url).send().await.map_err(|e| e.to_string())?;
+        Ok(())
+    }
+
+    // Registries
+    pub async fn list_registries(&self) -> Result<ItemList<Registry>, String> {
+        self.get_json("/api/v1/registries").await
+    }
+
+    pub async fn get_registry(&self, ns: &str, name: &str) -> Result<Registry, String> {
+        self.get_json(&format!("/api/v1/namespaces/{}/registries/{}", ns, name)).await
+    }
+
+    pub async fn delete_registry(&self, ns: &str, name: &str) -> Result<(), String> {
+        let url = format!("{}/api/v1/namespaces/{}/registries/{}", self.base_url, ns, name);
+        self.client.delete(&url).send().await.map_err(|e| e.to_string())?;
         Ok(())
     }
 
