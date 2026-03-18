@@ -1,6 +1,7 @@
 use super::style;
 
-/// Wraps page content in the full HTML shell with nav bar.
+/// Wraps page content in the full HTML shell with nav bar (no extra JS).
+#[allow(dead_code)]
 pub fn page(title: &str, active: &str, body: &str) -> String {
     format!(
         r#"<!DOCTYPE html>
