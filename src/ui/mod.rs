@@ -11,4 +11,3 @@ pub mod registries;
 pub mod storage;
 pub mod jobs;
 pub mod logs;
-pub mod terminal;

@@ -62,8 +62,6 @@ async fn main() {
         .route("/ui/jobs", get(ui::jobs::page))
         // Logs
         .route("/ui/logs", get(ui::logs::page))
-        // Terminal
-        .route("/ui/terminal", get(ui::terminal::page))
         // Health
         .route("/healthz", get(healthz))
         .with_state(state);

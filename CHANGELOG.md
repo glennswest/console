@@ -7,6 +7,8 @@
 - **feat:** Registries page — list + detail with URL/mirrors/insecure/images, delete support
 - **feat:** mkube client: bootconfigs and registries API endpoints (list, get, delete)
 - **feat:** Navigation bar updated with BootConfigs and Registries links
+- **refactor:** Remove terminal page (users access stormd directly)
+- **chore:** Drop axum `ws` feature (no longer needed)
 
 ## [v0.1.0] — 2026-03-18
 

@@ -42,7 +42,8 @@ src/ui/bmh.rs        — Bare Metal Hosts list + detail
 src/ui/storage.rs    — PVCs, iSCSI CDROMs, Disks
 src/ui/jobs.rs       — Jobs, runners, queue
 src/ui/logs.rs       — Pod log viewer
-src/ui/terminal.rs   — WebSocket terminal proxy
+src/ui/bootconfigs.rs — Boot configs list + detail
+src/ui/registries.rs — Registries list + detail
 ```
 
 ## Configuration
@@ -62,12 +63,13 @@ src/ui/terminal.rs   — WebSocket terminal proxy
 - [x] Phase 3: Networks + DNS/DHCP detail tabs
 - [x] Phase 4: BMH + Storage + Jobs pages
 - [x] Phase 5: Nodes detail + stormd integration
-- [x] Phase 6: Logs + Terminal pages
+- [x] Phase 6: Logs page (terminal removed — users access stormd directly)
+- [x] Phase 7: BootConfigs + Registries pages
 
 ### TODO
 - [ ] Deploy to mkube as pod, verify end-to-end
-- [ ] WebSocket proxy through console (currently direct to stormd)
 
 ### Recently Completed
 - [x] BootConfigs page (list + detail, referencing BMH cross-link)
 - [x] Registries page (list + detail, image catalog)
+- [x] Remove terminal page (users access stormd directly)
