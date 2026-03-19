@@ -1,0 +1,32 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: console
+  namespace: infra
+  annotations:
+    vkube.io/network: gt
+    vkube.io/image-policy: auto
+spec:
+  restartPolicy: Always
+  containers:
+    - name: console
+      image: registry.gt.lo:5000/console:edge
+      command: ["/console", "--mkube-url", "http://192.168.200.2:8082", "--bind", "0.0.0.0:8090"]
+      ports:
+        - name: http
+          containerPort: 8090
+          protocol: TCP
+      livenessProbe:
+        httpGet:
+          path: /healthz
+          port: 8090
+        periodSeconds: 30
+        failureThreshold: 3
+      startupProbe:
+        httpGet:
+          path: /healthz
+          port: 8090
+        initialDelaySeconds: 2
+        periodSeconds: 3
+        failureThreshold: 10
